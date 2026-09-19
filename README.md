@@ -1,16 +1,18 @@
-# FlowLedger
+# LLM Automation Platform for Operations Teams
 
-**Turning a discovered UI workflow into a dependable, reusable capability.**
+**Turn repetitive work in legacy software into reusable, verifiable automation.**
 
 [Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
 
 ![Platform overview: an LLM discovers a workflow, a versioned capability captures it, and a deterministic runtime executes it with verification and human handoff.](docs/assets/platform-overview.svg)
 
-## Why this platform exists
+## About
 
-Banking agents need to work inside applications that have no API. Those interfaces may be old, but their workflows are often stable enough to reuse.
+Operations teams spend time repeating tasks across legacy applications that lack usable APIs. They need automation whose results they can verify and whose exceptions they can resolve. This platform is designed for those teams, with automation engineers configuring workflows and operators handling exceptions.
 
-FlowLedger explores a simple idea: **use the model to learn the workflow, then make repeat execution explicit and verifiable.** Each successful discovery becomes a capability with defined inputs, outputs, controls, and success conditions. The production execution path follows that contract without asking a model what to do next.
+**Product insight:** discovering a workflow and executing it repeatedly are different jobs. Use an LLM to discover the steps, capture a reviewable capability, then replay it with explicit identity and result checks. When execution cannot proceed safely, a person takes over the same live session.
+
+The current prototype provides developer tools and an operator handoff console, demonstrated through a synthetic banking workflow.
 
 ## How it works
 
