@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "a6a166c8-cba3-4e1c-b463-69a7c62047b2",
+  "code": "PERMISSION_DENIED",
+  "step": "openSavings",
+  "expected": "Savings account details",
+  "observed": "Application explicitly denied the operation; visible controls: denied",
+  "evidence": "evidence/offline/a6a166c8-cba3-4e1c-b463-69a7c62047b2/failure-dom.json"
+}

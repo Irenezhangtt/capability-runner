@@ -1,0 +1,32 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BROWSER_CHANNEL: ""
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npm test
+      - name: Report submission evidence readiness
+        run: |
+          if npm run check:submission; then
+            echo "Live discovery and linked replay evidence found." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Submission incomplete: live discovery and linked replay evidence are required. Offline tests can pass independently." >> "$GITHUB_STEP_SUMMARY"
+          fi

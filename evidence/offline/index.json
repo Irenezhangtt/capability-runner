@@ -1,0 +1,31 @@
+{
+  "kind": "authored_fixture_replay",
+  "note": "These are real browser replay runs of an authored fixture. No LLM discovery is claimed.",
+  "runs": [
+    {
+      "scenario": "normal",
+      "runId": "c1b8c37c-cb07-4ac9-a625-26b578eced6c",
+      "status": "success"
+    },
+    {
+      "scenario": "normal",
+      "runId": "296b33d8-b74f-414e-8930-a26356932bb7",
+      "status": "business_outcome"
+    },
+    {
+      "scenario": "transient",
+      "runId": "26a97c92-0efe-4c9f-96b9-12d78f405a38",
+      "status": "success"
+    },
+    {
+      "scenario": "denied",
+      "runId": "a6a166c8-cba3-4e1c-b463-69a7c62047b2",
+      "status": "failure"
+    },
+    {
+      "scenario": "expired",
+      "runId": "c2a6fa09-9a22-4024-a8f1-e8f2e901f773",
+      "status": "failure"
+    }
+  ]
+}

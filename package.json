@@ -1,0 +1,27 @@
+{
+  "name": "capability-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "app": "node --env-file-if-exists=.env --import tsx src/demo-app.ts",
+    "discover": "node --env-file-if-exists=.env --import tsx src/cli.ts discover",
+    "replay": "node --env-file-if-exists=.env --import tsx src/cli.ts replay",
+    "test": "node --env-file-if-exists=.env --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "demo:offline": "node --env-file-if-exists=.env --import tsx scripts/offline-demo.ts",
+    "check:submission": "node --import tsx scripts/check-submission.ts"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

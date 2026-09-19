@@ -1,0 +1,18 @@
+{"seq":1,"at":"2026-09-18T23:33:17.817Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","sourceRunId":"offline-fixture","sourceKind":"authored_fixture","llmCalls":0}
+{"seq":2,"at":"2026-09-18T23:33:17.818Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-18T23:33:17.878Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":4,"at":"2026-09-18T23:33:17.878Z","type":"action_started","step":"fillMember","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":5,"at":"2026-09-18T23:33:17.887Z","type":"action_completed","step":"fillMember"}
+{"seq":6,"at":"2026-09-18T23:33:17.888Z","type":"action_started","step":"search","action":{"type":"click","target":"search"}}
+{"seq":7,"at":"2026-09-18T23:33:18.049Z","type":"condition_detected","step":"search","code":"TRANSIENT_LOAD","kind":"recoverable"}
+{"seq":8,"at":"2026-09-18T23:33:18.089Z","type":"recovery_action","target":"retry","attempt":1}
+{"seq":9,"at":"2026-09-18T23:33:18.103Z","type":"action_completed","step":"search","checkpoint":{"target":"resultsReady","text":"Search results"}}
+{"seq":10,"at":"2026-09-18T23:33:18.104Z","type":"action_started","step":"openMember","action":{"type":"click","target":"openMember"}}
+{"seq":11,"at":"2026-09-18T23:33:18.151Z","type":"action_completed","step":"openMember","checkpoint":{"target":"memberReady","text":"Member overview"}}
+{"seq":12,"at":"2026-09-18T23:33:18.151Z","type":"action_started","step":"openSavings","action":{"type":"click","target":"savings"}}
+{"seq":13,"at":"2026-09-18T23:33:18.199Z","type":"action_completed","step":"openSavings","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":14,"at":"2026-09-18T23:33:18.199Z","type":"action_started","step":"readBalance","action":{"type":"extract","target":"balance","output":"balance"}}
+{"seq":15,"at":"2026-09-18T23:33:18.204Z","type":"action_completed","step":"readBalance"}
+{"seq":16,"at":"2026-09-18T23:33:18.205Z","type":"action_started","step":"readCurrency","action":{"type":"extract","target":"currency","output":"currency"}}
+{"seq":17,"at":"2026-09-18T23:33:18.215Z","type":"action_completed","step":"readCurrency"}
+{"seq":18,"at":"2026-09-18T23:33:18.217Z","type":"run_completed","outputNames":["balance","currency"]}

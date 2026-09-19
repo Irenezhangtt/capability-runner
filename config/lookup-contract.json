@@ -1,0 +1,9 @@
+{
+  "name": "lookupSavings",
+  "description": "Look up a member and return their available savings balance and currency.",
+  "inputs": {"memberId":{"type":"string", "description":"Five-digit synthetic member identifier", "sensitive":true}},
+  "outputs": {
+    "balance":{"type":"number", "description":"Available savings balance", "sensitive":true},
+    "currency":{"type":"string", "description":"ISO currency code", "sensitive":false}
+  }
+}
