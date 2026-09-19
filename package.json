@@ -12,7 +12,10 @@
     "replay": "node --env-file-if-exists=.env --import tsx src/cli.ts replay",
     "test": "node --env-file-if-exists=.env --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "demo:offline": "node --env-file-if-exists=.env --import tsx scripts/offline-demo.ts",
+    "demo:assurance": "node --env-file-if-exists=.env --import tsx scripts/assurance-lab.ts",
     "check:submission": "node --import tsx scripts/check-submission.ts"
   },
   "dependencies": {
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.1",
+    "prettier": "^3.9.8",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }

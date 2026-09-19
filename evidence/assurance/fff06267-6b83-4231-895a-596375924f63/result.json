@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "fff06267-6b83-4231-895a-596375924f63",
+  "code": "ENTITY_MISMATCH",
+  "step": "readBalance",
+  "expected": "{\"type\":\"extract\",\"target\":\"balance\",\"output\":\"balance\"}",
+  "observed": "Displayed entity does not match the requested input; extraction blocked; visible controls: balance, currency, displayedMember, complete, transfer",
+  "evidence": "evidence/assurance/fff06267-6b83-4231-895a-596375924f63/failure-dom.json"
+}

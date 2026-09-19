@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "fd3188c1-8ac3-4c12-bdc4-1c860c07e31c",
+  "code": "RECOVERY_EXHAUSTED",
+  "step": "search",
+  "expected": "Search results",
+  "observed": "Bounded recovery budget exhausted; visible controls: memberId, search, searchReady, transient, retry",
+  "evidence": "evidence/assurance/fd3188c1-8ac3-4c12-bdc4-1c860c07e31c/failure-dom.json"
+}

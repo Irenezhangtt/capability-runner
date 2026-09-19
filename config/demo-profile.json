@@ -1,37 +1,149 @@
 {
-  "product": "LedgerDesk", "version": "1", "origin": "http://127.0.0.1:4173", "entry": "/app",
-  "frame": "iframe[title=\"Account workspace\"]", "fingerprint": "LedgerDesk / release 1",
-  "allowedPaths": ["/app", "/legacy/search", "/legacy/member", "/legacy/accounts", "/legacy/restore"],
+  "product": "LedgerDesk",
+  "version": "1",
+  "origin": "http://127.0.0.1:4173",
+  "entry": "/app",
+  "frame": "iframe[title=\"Account workspace\"]",
+  "fingerprint": "LedgerDesk / release 1",
+  "entryCheckpoint": { "target": "searchReady", "text": "Member search" },
+  "allowedPaths": [
+    "/app",
+    "/legacy/search",
+    "/legacy/member",
+    "/legacy/accounts",
+    "/legacy/restore"
+  ],
   "allowedActions": ["navigate", "fill", "click", "extract"],
   "targets": {
-    "memberId": {"frame":"iframe[title=\"Account workspace\"]", "by":"label", "name":"Member ID"},
-    "search": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"button", "name":"Find member"},
-    "openMember": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"link", "name":"Open member"},
-    "savings": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"link", "name":"Savings account"},
-    "balance": {"frame":"iframe[title=\"Account workspace\"]", "by":"label", "name":"Available balance"},
-    "currency": {"frame":"iframe[title=\"Account workspace\"]", "by":"label", "name":"Currency"},
-    "complete": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"heading", "name":"Savings account details"},
-    "searchReady": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"heading", "name":"Member search"},
-    "resultsReady": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"heading", "name":"Search results"},
-    "memberReady": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"heading", "name":"Member overview"},
-    "notFound": {"frame":"iframe[title=\"Account workspace\"]", "by":"text", "name":"No matching member"},
-    "validation": {"frame":"iframe[title=\"Account workspace\"]", "by":"text", "name":"Enter a five-digit member ID"},
-    "transient": {"frame":"iframe[title=\"Account workspace\"]", "by":"text", "name":"Service temporarily unavailable"},
-    "retry": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"link", "name":"Retry lookup"},
-    "expired": {"frame":"iframe[title=\"Account workspace\"]", "by":"text", "name":"Session expired"},
-    "denied": {"frame":"iframe[title=\"Account workspace\"]", "by":"text", "name":"Permission denied"},
-    "transfer": {"frame":"iframe[title=\"Account workspace\"]", "by":"role", "role":"button", "name":"Transfer funds"}
+    "memberId": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Member ID"
+    },
+    "search": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "button",
+      "name": "Find member"
+    },
+    "openMember": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Open member"
+    },
+    "savings": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Savings account"
+    },
+    "balance": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Available balance"
+    },
+    "currency": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Currency"
+    },
+    "displayedMember": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Member reference"
+    },
+    "complete": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Savings account details"
+    },
+    "searchReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Member search"
+    },
+    "resultsReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Search results"
+    },
+    "memberReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Member overview"
+    },
+    "notFound": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "No matching member"
+    },
+    "validation": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Enter a five-digit member ID"
+    },
+    "transient": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Service temporarily unavailable"
+    },
+    "retry": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Retry lookup"
+    },
+    "expired": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Session expired"
+    },
+    "denied": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Permission denied"
+    },
+    "transfer": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "button",
+      "name": "Transfer funds"
+    }
   },
-  "permissions": {"memberId":["fill"],"search":["click"],"openMember":["click"],"savings":["click"],"balance":["extract"],"currency":["extract"],"retry":["click"]},
+  "permissions": {
+    "memberId": ["fill"],
+    "search": ["click"],
+    "openMember": ["click"],
+    "savings": ["click"],
+    "balance": ["extract"],
+    "currency": ["extract"],
+    "retry": ["click"]
+  },
   "riskyTargets": ["transfer"],
-  "checkpoints": {"searchReady":"Member search", "resultsReady":"Search results", "memberReady":"Member overview", "complete":"Savings account details"},
+  "checkpoints": {
+    "searchReady": "Member search",
+    "resultsReady": "Search results",
+    "memberReady": "Member overview",
+    "complete": "Savings account details"
+  },
   "conditions": [
-    {"target":"notFound", "kind":"business", "code":"MEMBER_NOT_FOUND"},
-    {"target":"validation", "kind":"business", "code":"INVALID_MEMBER_ID"},
-    {"target":"transient", "kind":"recoverable", "code":"TRANSIENT_LOAD", "recoveryTarget":"retry"},
-    {"target":"expired", "kind":"handoff", "code":"SESSION_EXPIRED"},
-    {"target":"denied", "kind":"hard", "code":"PERMISSION_DENIED"}
+    { "target": "notFound", "kind": "business", "code": "MEMBER_NOT_FOUND" },
+    { "target": "validation", "kind": "business", "code": "INVALID_MEMBER_ID" },
+    {
+      "target": "transient",
+      "kind": "recoverable",
+      "code": "TRANSIENT_LOAD",
+      "recoveryTarget": "retry"
+    },
+    { "target": "expired", "kind": "handoff", "code": "SESSION_EXPIRED" },
+    { "target": "denied", "kind": "hard", "code": "PERMISSION_DENIED" }
   ],
-  "success": {"target":"complete", "text":"Savings account details"},
-  "outputTargets": {"balance":"balance", "currency":"currency"}
+  "success": { "target": "complete", "text": "Savings account details" },
+  "postconditions": [{ "target": "displayedMember", "equalsInput": "memberId" }],
+  "outputTargets": { "balance": "balance", "currency": "currency" }
 }

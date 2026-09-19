@@ -1,0 +1,7 @@
+{"seq":1,"at":"2026-09-19T02:12:15.491Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","artifactHash":"84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f","sourceRunId":"offline-fixture","sourceKind":"authored_fixture","llmCalls":0}
+{"seq":2,"at":"2026-09-19T02:12:15.492Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-19T02:12:15.556Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":4,"at":"2026-09-19T02:12:15.556Z","type":"action_started","step":"fillMember","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":5,"at":"2026-09-19T02:12:15.567Z","type":"action_completed","step":"fillMember"}
+{"seq":6,"at":"2026-09-19T02:12:15.568Z","type":"action_started","step":"search","action":{"type":"click","target":"search"}}
+{"seq":7,"at":"2026-09-19T02:12:15.720Z","type":"condition_detected","step":"search","code":"MEMBER_NOT_FOUND","kind":"business"}

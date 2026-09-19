@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "ffca55bc-aff2-4642-a7ae-65cedde65f2f",
+  "code": "AMBIGUOUS_TARGET",
+  "step": "openSavings",
+  "expected": "Savings account details",
+  "observed": "Multiple controls match the reviewed target; visible controls: unavailable",
+  "evidence": "evidence/assurance/ffca55bc-aff2-4642-a7ae-65cedde65f2f/failure-dom.json"
+}

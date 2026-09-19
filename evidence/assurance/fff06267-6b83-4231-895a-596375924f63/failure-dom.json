@@ -1,0 +1,228 @@
+{
+  "kind": "sanitized_dom_snapshot",
+  "screen": "balance: Available funds\ncurrency: Account currency\ndisplayedMember: Client reference\ncomplete: Savings summary\ntransfer: Transfer funds",
+  "visibleTargets": [
+    "balance",
+    "currency",
+    "displayedMember",
+    "complete",
+    "transfer"
+  ],
+  "owner": "automation",
+  "controls": [
+    {
+      "id": "memberId",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "label",
+        "name": "Client number"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "search",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "button",
+        "name": "Find client"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "openMember",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "View client"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "savings",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "Deposit account"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "balance",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "label",
+        "name": "Available funds"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 115,
+        "y": 292.1875,
+        "width": 124.5625,
+        "height": 47
+      }
+    },
+    {
+      "id": "currency",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "label",
+        "name": "Account currency"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 243.75,
+        "y": 316.1875,
+        "width": 32.6875,
+        "height": 18
+      }
+    },
+    {
+      "id": "displayedMember",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "label",
+        "name": "Client reference"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 146.421875,
+        "y": 163,
+        "width": 47.984375,
+        "height": 18
+      }
+    },
+    {
+      "id": "complete",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Savings summary"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 82,
+        "y": 111,
+        "width": 1036,
+        "height": 33
+      }
+    },
+    {
+      "id": "searchReady",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Client directory"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "resultsReady",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Matching clients"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "memberReady",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Client overview"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "notFound",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "text",
+        "name": "No matching client"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "validation",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "text",
+        "name": "Enter a five-digit member ID"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "transient",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "text",
+        "name": "Service temporarily unavailable"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "retry",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "Retry lookup"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "expired",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "text",
+        "name": "Session expired"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "denied",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "text",
+        "name": "Permission denied"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "transfer",
+      "selector": {
+        "frame": "iframe[title=\"Client workspace\"]",
+        "by": "role",
+        "role": "button",
+        "name": "Transfer funds"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 82,
+        "y": 453.78125,
+        "width": 138.671875,
+        "height": 43
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "kind": "sanitized_dom_snapshot",
+  "screen": "denied: Permission denied",
+  "visibleTargets": [
+    "denied"
+  ],
+  "owner": "automation",
+  "controls": [
+    {
+      "id": "memberId",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "label",
+        "name": "Member ID"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "search",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "button",
+        "name": "Find member"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "openMember",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "Open member"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "savings",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "Savings account"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "balance",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "label",
+        "name": "Available balance"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "currency",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "label",
+        "name": "Currency"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "displayedMember",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "label",
+        "name": "Member reference"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "complete",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Savings account details"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "searchReady",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Member search"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "resultsReady",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Search results"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "memberReady",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "heading",
+        "name": "Member overview"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "notFound",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "text",
+        "name": "No matching member"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "validation",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "text",
+        "name": "Enter a five-digit member ID"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "transient",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "text",
+        "name": "Service temporarily unavailable"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "retry",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "link",
+        "name": "Retry lookup"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "expired",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "text",
+        "name": "Session expired"
+      },
+      "matches": 0,
+      "bounds": null
+    },
+    {
+      "id": "denied",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "text",
+        "name": "Permission denied"
+      },
+      "matches": 1,
+      "bounds": {
+        "x": 82,
+        "y": 111,
+        "width": 1036,
+        "height": 33
+      }
+    },
+    {
+      "id": "transfer",
+      "selector": {
+        "frame": "iframe[title=\"Account workspace\"]",
+        "by": "role",
+        "role": "button",
+        "name": "Transfer funds"
+      },
+      "matches": 0,
+      "bounds": null
+    }
+  ]
+}

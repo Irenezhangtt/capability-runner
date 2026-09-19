@@ -1,0 +1,14 @@
+{"seq":1,"at":"2026-09-19T02:12:21.286Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","artifactHash":"84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f","sourceRunId":"offline-fixture","sourceKind":"authored_fixture","llmCalls":0}
+{"seq":2,"at":"2026-09-19T02:12:21.287Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-19T02:12:21.346Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":4,"at":"2026-09-19T02:12:21.346Z","type":"action_started","step":"fillMember","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":5,"at":"2026-09-19T02:12:21.355Z","type":"action_completed","step":"fillMember"}
+{"seq":6,"at":"2026-09-19T02:12:21.356Z","type":"action_started","step":"search","action":{"type":"click","target":"search"}}
+{"seq":7,"at":"2026-09-19T02:12:21.508Z","type":"action_completed","step":"search","checkpoint":{"target":"resultsReady","text":"Search results"}}
+{"seq":8,"at":"2026-09-19T02:12:21.508Z","type":"action_started","step":"openMember","action":{"type":"click","target":"openMember"}}
+{"seq":9,"at":"2026-09-19T02:12:21.572Z","type":"action_completed","step":"openMember","checkpoint":{"target":"memberReady","text":"Member overview"}}
+{"seq":10,"at":"2026-09-19T02:12:21.573Z","type":"action_started","step":"openSavings","action":{"type":"click","target":"savings"}}
+{"seq":11,"at":"2026-09-19T02:12:21.719Z","type":"action_completed","step":"openSavings","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":12,"at":"2026-09-19T02:12:21.720Z","type":"action_started","step":"readBalance","action":{"type":"extract","target":"balance","output":"balance"}}
+{"seq":13,"at":"2026-09-19T02:12:21.724Z","type":"postcondition_checked","step":"readBalance","target":"displayedMember","equalsInput":"memberId","passed":false}
+{"seq":14,"at":"2026-09-19T02:12:21.773Z","type":"run_failed","code":"ENTITY_MISMATCH","step":"readBalance"}

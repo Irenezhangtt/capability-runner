@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "3dccd0e2-3739-4d3d-8d3a-76421e18d5d7",
+  "code": "INTERVENTION_REQUIRED",
+  "step": "openSavings",
+  "expected": "Savings account details",
+  "observed": "Rerun headed with --human for live session handoff; visible controls: expired",
+  "evidence": "evidence/assurance/3dccd0e2-3739-4d3d-8d3a-76421e18d5d7/failure-dom.json"
+}

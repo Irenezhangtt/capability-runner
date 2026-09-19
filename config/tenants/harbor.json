@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "id": "harbor",
+  "baseProfileDigest": "2f567c434d8b3a25cf4f780e1f1508ab5dd7986efee4dab8c6ba64f796446550",
+  "rationale": "Same vendor product with tenant-specific frame, branding, labels and headings. Workflow and safety policy are unchanged.",
+  "fingerprint": "LedgerDesk / release 1 - Harbor CU",
+  "frameTitle": "Client workspace",
+  "labels": {
+    "memberId": "Client number",
+    "search": "Find client",
+    "openMember": "View client",
+    "savings": "Deposit account",
+    "balance": "Available funds",
+    "currency": "Account currency",
+    "displayedMember": "Client reference",
+    "complete": "Savings summary",
+    "searchReady": "Client directory",
+    "resultsReady": "Matching clients",
+    "memberReady": "Client overview",
+    "notFound": "No matching client"
+  }
+}

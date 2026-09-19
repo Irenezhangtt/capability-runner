@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "887f72af-171c-4a32-acfc-1cf057dbe8ab",
+  "code": "OUTPUT_PARSE_FAILED",
+  "step": "readBalance",
+  "expected": "{\"type\":\"extract\",\"target\":\"balance\",\"output\":\"balance\"}",
+  "observed": "Output does not match its declared type; visible controls: balance, currency, displayedMember, complete, transfer",
+  "evidence": "evidence/assurance/887f72af-171c-4a32-acfc-1cf057dbe8ab/failure-dom.json"
+}

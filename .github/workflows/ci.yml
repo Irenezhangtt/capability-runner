@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      BROWSER_CHANNEL: ""
+      BROWSER_CHANNEL: ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,7 +22,10 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run typecheck
+      - run: npm run format:check
       - run: npm test
+      - name: Verify the cross-tenant fault corpus
+        run: npm run demo:assurance -- --output runs/ci-assurance
       - name: Report submission evidence readiness
         run: |
           if npm run check:submission; then
