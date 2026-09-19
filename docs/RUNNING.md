@@ -6,7 +6,7 @@ Run all commands from the repository root. This guide contains configuration, de
 
 ## Setup
 
-Requires Node.js 22.9+ and either Google Chrome or Playwright Chromium.
+Requires Node.js 22.9+ and either Google Chrome or Playwright Chromium. Live discovery also requires Python 3.10+; no Python packages need installing. Set `PYTHON_BIN` in `.env` if the executable is not `python3`. See [Python API integration](PYTHON.md) for the architecture and connector contract.
 
 ```bash
 npm ci
@@ -36,6 +36,7 @@ Supported adapters: `openai` (Responses API), `anthropic` (Messages API; use `AN
 
 ```bash
 npm run typecheck
+npm run test:python
 npm test
 npm run demo:offline
 npm run demo:assurance
@@ -75,7 +76,7 @@ npm run replay -- \
   --evidence evidence/live
 ```
 
-`--target` selects the deployment origin; the reviewed entry route comes from the profile. The default profile is `config/demo-profile.json` and the input/output contract is `config/lookup-contract.json`. Each run uses a fresh browser context. Discovery has a 24-decision and 120-second loop budget; an in-flight request can take up to 30 seconds. A capability is emitted only after verifying the final checkpoint and every declared output.
+`--target` selects the deployment origin; the reviewed entry route comes from the profile. The default profile is `config/demo-profile.json` and the input/output contract is `config/lookup-contract.json`. Each run uses a fresh browser context. Discovery has a 24-decision and 120-second loop budget; an in-flight Python request can take up to 35 seconds. A capability is emitted only after verifying the final checkpoint and every declared output.
 
 The programmatic runner returns real typed outputs in memory. The CLI and saved evidence redact sensitive outputs by default. `--show-outputs` opts into printing **synthetic demo** outputs to the terminal; do not use that option with real customer data. All examples use synthetic identifiers, so shell history is safe for these examples.
 

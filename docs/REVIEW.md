@@ -39,3 +39,7 @@ GitHub Actions runs type checking and browser tests without model credentials. P
 Current artifacts use **schema 1.1**, which requires identity postconditions. Historical schema 1.0 evidence is preserved under `evidence/archive/v1.0/`; those artifacts are intentionally rejected by the current interpreter. Regenerate the offline fixture or re-record discovery instead of silently upgrading a capability that lacks the required safety contract.
 
 Run `npm run check:submission` after generating real discovery and replay evidence. It intentionally fails while only offline fixtures exist. Review `evidence/` for sensitive content, rerun tests, and publish the source to a public repository. Submission instructions from the assignment require the repository URL by email; this project does not send that email automatically.
+
+## Python API layer
+
+Discovery uses the [Python model connectors](PYTHON.md); TypeScript keeps execution and policy authority. Run `npm run test:python` for connector/protocol tests. These use mocked responses and do not replace genuine discovery evidence.

@@ -16,7 +16,8 @@
     "format:check": "prettier --check .",
     "demo:offline": "node --env-file-if-exists=.env --import tsx scripts/offline-demo.ts",
     "demo:assurance": "node --env-file-if-exists=.env --import tsx scripts/assurance-lab.ts",
-    "check:submission": "node --import tsx scripts/check-submission.ts"
+    "check:submission": "node --import tsx scripts/check-submission.ts",
+    "test:python": "PYTHONPATH=python python3 -B -m unittest discover -s python/tests -v"
   },
   "dependencies": {
     "playwright": "^1.63.0",

@@ -40,7 +40,7 @@ The same capability runs across two tenant presentations. A constrained adapter 
 
 The working example searches a synthetic banking system, opens a member's savings account, and returns the balance and currency. A second presentation, Harbor CU, exercises reuse across institutions.
 
-**27 tests · 15 fault-corpus cases · 2 tenant presentations · 0 model calls during replay**
+**TypeScript runtime + Python API connectors · 15 fault-corpus cases · 2 tenant presentations · 0 model calls during replay**
 
 The [assurance lab](evidence/assurance/SUMMARY.md) includes a revealing counterexample: the expected page is visible, but the member is wrong. Both presentations reject it before extraction. These are reproducible synthetic experiments, not a production reliability claim.
 
@@ -50,13 +50,14 @@ The [assurance lab](evidence/assurance/SUMMARY.md) includes a revealing countere
 
 - **[Design report](REPORT.md)** — architecture, contracts, safety, and deliberate scope.
 - **[Decision notes](docs/DECISIONS.md)** — alternatives considered and where the guarantees end.
+- **[Python integration](docs/PYTHON.md)** — model API connectors and the runtime boundary.
 - **[Running guide](docs/RUNNING.md)** — setup, live discovery, replay, and human handoff.
 - **[Reviewer guide](docs/REVIEW.md)** — assignment coverage and implementation map.
 
 <details>
 <summary><strong>Quick start — setup, discover, replay</strong></summary>
 
-Requires Node.js 22.9+ and Google Chrome. Copy `.env.example` to `.env` and configure the provider's API key and `LLM_MODEL` for live discovery. See the [running guide](docs/RUNNING.md) for Chromium and provider alternatives.
+Requires Node.js 22.9+, Google Chrome, and Python 3.10+ for live discovery. Copy `.env.example` to `.env` and configure the provider's API key and `LLM_MODEL` for live discovery. See the [running guide](docs/RUNNING.md) for Chromium and provider alternatives.
 
 ```bash
 npm ci
