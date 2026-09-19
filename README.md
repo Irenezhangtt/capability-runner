@@ -1,4 +1,4 @@
-# Capability Runner
+# FlowLedger
 
 **Turning a discovered UI workflow into a dependable, reusable capability.**
 
@@ -10,7 +10,7 @@
 
 Banking agents need to work inside applications that have no API. Those interfaces may be old, but their workflows are often stable enough to reuse.
 
-Capability Runner explores a simple idea: **use the model to learn the workflow, then make repeat execution explicit and verifiable.** Each successful discovery becomes a capability with defined inputs, outputs, controls, and success conditions. The production execution path follows that contract without asking a model what to do next.
+FlowLedger explores a simple idea: **use the model to learn the workflow, then make repeat execution explicit and verifiable.** Each successful discovery becomes a capability with defined inputs, outputs, controls, and success conditions. The production execution path follows that contract without asking a model what to do next.
 
 ## How it works
 

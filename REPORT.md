@@ -1,6 +1,6 @@
 # Architecture
 
-Capability Runner separates model-driven discovery from deterministic execution. Both paths operate through a surface adapter and policy boundary. The model sees a live inventory of reviewed visible controls, selects a typed action, and receives the next observation. Private parameter values are resolved inside the adapter. Successful discovery records actions and observed checkpoints into a capability. Replay consumes that artifact without importing a model client.
+FlowLedger separates model-driven discovery from deterministic execution. Both paths operate through a surface adapter and policy boundary. The model sees a live inventory of reviewed visible controls, selects a typed action, and receives the next observation. Private parameter values are resolved inside the adapter. Successful discovery records actions and observed checkpoints into a capability. Replay consumes that artifact without importing a model client.
 
 The concrete surface is LedgerDesk, a local synthetic banking application with server-rendered tables and a named iframe. The app profile supplies locators, permissions, and condition detectors, not action order. This deliberately trades open-ended exploration for a small auditable control vocabulary. A single Node.js process, JSON files, and an in-process local operator server make ownership and debugging easy to follow. The sandbox has no data API used by automation.
 

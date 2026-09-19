@@ -10,7 +10,7 @@
   <rect width="1200" height="440" rx="16" fill="url(#grid)"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
     <circle cx="47" cy="39" r="4" fill="#7ae0ba"/>
-    <text x="60" y="44" fill="#a9c9c3" font-size="12" font-weight="600" letter-spacing="2">CAPABILITY RUNNER / PLATFORM DESIGN</text>
+    <text x="60" y="44" fill="#a9c9c3" font-size="12" font-weight="600" letter-spacing="2">FLOWLEDGER / PLATFORM DESIGN</text>
     <text x="42" y="100" fill="#f4faf8" font-size="34" font-weight="600" letter-spacing="-1">Learn the workflow. Make it repeatable.</text>
     <text x="43" y="131" fill="#a9bfca" font-size="16">A clear contract between model reasoning and reliable execution.</text>
     <rect x="42" y="172" width="330" height="142" rx="10" fill="#203c4b" stroke="#3b5663"/>
