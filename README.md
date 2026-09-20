@@ -2,9 +2,15 @@
 
 **Turn repetitive work in legacy software into reusable, verifiable automation.**
 
-[Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
+**[View the demo — screenshots & walkthrough](docs/DEMO.md)** · [Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
 
 ![Platform overview: an LLM discovers a workflow, a versioned capability captures it, and a deterministic runtime executes it with verification and human handoff.](docs/assets/platform-overview.svg)
+
+## See it working
+
+[![Actual operator console: automation pauses when a session expires and offers human takeover](docs/assets/demo/07-operator-handoff.png)](docs/DEMO.md)
+
+**[Open the two-minute walkthrough →](docs/DEMO.md)** Real browser captures show lookup, tenant reuse, wrong-member rejection, and same-session handoff. No installation needed. Synthetic data and an authored replay capability; live LLM discovery evidence remains pending.
 
 ## About
 

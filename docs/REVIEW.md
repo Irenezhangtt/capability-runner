@@ -2,6 +2,8 @@
 
 [← Platform overview](../README.md) · [Design report](../REPORT.md) · [Running guide](RUNNING.md)
 
+Start with the **[two-minute visual demo](DEMO.md)**: real application and operator-console screenshots, with no setup required.
+
 ## Project map
 
 ```text

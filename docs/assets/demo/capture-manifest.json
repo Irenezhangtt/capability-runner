@@ -1,0 +1,37 @@
+{
+  "capturedAt": "2026-09-20T08:20:13.915Z",
+  "source": "actual Playwright browser screenshots",
+  "data": "synthetic training records only",
+  "capability": "authored_fixture; not live LLM discovery",
+  "captures": [
+    {
+      "scenario": "normal",
+      "result": "success",
+      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "modelCalls": 0,
+      "runId": "1c19ae18-6d3f-4f64-bf16-fa4c03b60398"
+    },
+    {
+      "scenario": "wrong-member",
+      "result": "ENTITY_MISMATCH",
+      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "modelCalls": 0,
+      "runId": "c1d3d8a9-2a34-483e-ba40-8915a97ac844"
+    },
+    {
+      "scenario": "harbor",
+      "result": "success",
+      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "modelCalls": 0,
+      "runId": "115a77ab-73af-4562-b3b3-f76c49fa6745"
+    },
+    {
+      "scenario": "expired",
+      "result": "success",
+      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "modelCalls": 0,
+      "runId": "b10bb691-77a1-4a4b-94ac-78df2c36c77f",
+      "operator": "scripted operator simulation on the same live page"
+    }
+  ]
+}
