@@ -2,11 +2,13 @@
 
 **Turn repetitive work in legacy software into reusable, verifiable automation.**
 
-**[View the demo — screenshots & walkthrough](docs/DEMO.md)** · [Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
+**[Try the interactive demo](https://llm-automation-operations-demo.tina219127.chatgpt.site)** · [Real browser screenshots](docs/DEMO.md) · [Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
 
 ![Platform overview: an LLM discovers a workflow, a versioned capability captures it, and a deterministic runtime executes it with verification and human handoff.](docs/assets/platform-overview.svg)
 
 ## See it working
+
+**[Launch the interactive workflow studio →](https://llm-automation-operations-demo.tina219127.chatgpt.site)** Try sample runs, failure conditions, and human handoff without an API key. The public app is an explicitly labeled simulation; live AI discovery shows “API token unavailable.”
 
 [![Actual operator console: automation pauses when a session expires and offers human takeover](docs/assets/demo/07-operator-handoff.png)](docs/DEMO.md)
 

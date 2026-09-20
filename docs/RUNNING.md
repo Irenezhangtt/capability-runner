@@ -143,3 +143,9 @@ Run `npm run check:submission` after collecting a real discovery and linked repl
 - [Playwright locators](https://playwright.dev/docs/locators): scoped roles and labels, exact matches, and auto-waiting.
 - [OpenAI structured output formats](https://developers.openai.com/api/docs/guides/structured-outputs): JSON response configuration. The runner additionally validates decisions with Zod.
 - [Claude authentication](https://platform.claude.com/docs/en/manage-claude/authentication): API key headers for the Messages adapter.
+
+## Interactive reviewer demo
+
+Run `npm run demo:web`, then open `http://127.0.0.1:4174`. This separate presentation app simulates sample workflows in the browser; it does not invoke Python, Playwright, or a model API. Live discovery intentionally displays **API token unavailable**. No credentials are requested, embedded, or stored.
+
+Source lives in `reviewer-demo/`. `npm run build:demo` copies the four public assets into `dist/` for Sites hosting. Only those static assets are deployed. To check the interactive scenarios with the preview server running, use `node --env-file-if-exists=.env scripts/check-reviewer-demo.mjs`. Optional WebMCP read access is feature-detected; native WebMCP validation was unavailable in the test browser. Downloaded traces explicitly set `isExecutionEvidence: false`.

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Try an interactive workflow automation demo for operations teams. Explore verification, exception handling, and human oversight without an API key."
+    />
+    <title>LLM Automation Platform · Interactive Demo</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="rail">
+      <a class="brand" href="#"
+        ><span class="brand-icon">⌘</span
+        ><span>LLM Automation<br /><small>FOR OPERATIONS TEAMS</small></span></a
+      >
+      <div class="rail-label">WORKSPACE</div>
+      <a class="nav active" href="#workspace">◈ &nbsp; Workflow studio</a
+      ><a
+        class="nav"
+        href="https://github.com/Irenezhangtt/llm-automation-platform/blob/main/docs/DEMO.md"
+        target="_blank"
+        rel="noopener"
+        >▧ &nbsp; Real browser captures ↗</a
+      ><a
+        class="nav"
+        href="https://github.com/Irenezhangtt/llm-automation-platform/blob/main/REPORT.md"
+        target="_blank"
+        rel="noopener"
+        >≡ &nbsp; Architecture ↗</a
+      >
+      <div class="rail-bottom">
+        <span class="status-dot"></span> Interview demo
+        <p>Synthetic records only.<br />No credentials or API calls.</p>
+        <a
+          href="https://github.com/Irenezhangtt/llm-automation-platform"
+          target="_blank"
+          rel="noopener"
+          >Explore the source ↗</a
+        >
+      </div>
+    </aside>
+    <main id="workspace">
+      <header>
+        <div class="eyebrow">WORKFLOW STUDIO <span>/</span> SAVINGS LOOKUP</div>
+        <span class="pill">Interactive simulation</span>
+      </header>
+      <section class="intro">
+        <div>
+          <h1>Automation you can inspect.</h1>
+          <p>Run a workflow. Challenge the result. Step in when it matters.</p>
+        </div>
+        <div class="version">
+          CAPABILITY<br /><strong>lookupSavings <span>v1.0.0</span></strong>
+        </div>
+      </section>
+      <div class="notice">
+        <span>◎</span>
+        <p>
+          <strong>No API key needed.</strong> This interactive simulation illustrates the platform’s
+          behavior. The repository contains the real Python + Playwright implementation and browser
+          execution evidence.
+        </p>
+      </div>
+      <section class="studio">
+        <div class="configuration panel">
+          <div class="panel-heading">
+            <span class="eyebrow">01 / CONFIGURE</span>
+            <h2>A balance lookup</h2>
+            <p>One reusable workflow. Different inputs and conditions.</p>
+          </div>
+          <div class="mode-switch" role="group" aria-label="Execution mode">
+            <button id="demo-mode" aria-pressed="true">Sample replay</button
+            ><button id="live-mode" aria-pressed="false">Live AI discovery</button>
+          </div>
+          <div id="token-notice" class="token-notice" hidden role="status">
+            <strong>API token unavailable</strong>
+            <p>
+              Live discovery requires a server-side model connection. It is disabled in this public
+              demo. No API key is requested or stored.
+            </p>
+            <button id="back-demo" class="text-button">Continue with sample replay →</button>
+          </div>
+          <form id="run-form">
+            <label for="tenant">Institution</label
+            ><select id="tenant">
+              <option value="base">LedgerDesk</option>
+              <option value="harbor">Harbor Credit Union</option>
+            </select>
+            <label for="member">Synthetic member</label
+            ><select id="member">
+              <option value="12345">12345 · Jordan Example</option>
+              <option value="67890">67890 · Taylor Sample</option>
+              <option value="99999">99999 · No matching member</option>
+            </select>
+            <label for="scenario">Try a condition</label
+            ><select id="scenario">
+              <option value="normal">Normal execution</option>
+              <option value="wrong-member">Wrong member on the right screen</option>
+              <option value="expired">Session expires · human handoff</option>
+              <option value="transient">Temporary service error</option>
+              <option value="denied">Permission denied</option>
+            </select>
+            <p class="scenario-help" id="scenario-help">
+              Verify the requested member before reading the balance.
+            </p>
+            <button type="submit" id="run" class="primary">
+              Run sample workflow <span>→</span>
+            </button>
+            <button type="button" id="reset" class="secondary">Reset demo</button>
+          </form>
+          <div class="contract">
+            <span class="eyebrow">WORKFLOW CONTRACT</span>
+            <p><span>Input</span><code>memberId: string</code></p>
+            <p><span>Output</span><code>balance + currency</code></p>
+            <p><span>Safety</span><code>Identity must match</code></p>
+          </div>
+        </div>
+        <div class="execution">
+          <section class="panel workspace-panel">
+            <div class="workspace-bar">
+              <div>
+                <span class="status-dot" id="run-dot"></span
+                ><strong id="run-status">Ready to run</strong>
+              </div>
+              <span id="ownership">Control: automation</span>
+            </div>
+            <div class="workspace-caption">SIMULATED APPLICATION · NOT A LIVE BANKING SESSION</div>
+            <div id="app-screen" class="app-screen"></div>
+          </section>
+          <section id="handoff" class="handoff" hidden aria-labelledby="handoff-title">
+            <div>
+              <span class="eyebrow">HUMAN OVERSIGHT</span>
+              <h2 id="handoff-title">This workflow needs you.</h2>
+              <p id="handoff-message">
+                The session expired. Take control to restore it before automation continues.
+              </p>
+            </div>
+            <div class="handoff-actions">
+              <button id="take" class="primary">Take control</button
+              ><button id="restore" class="primary" hidden>Restore sample session</button
+              ><button id="resume" class="primary" hidden>Return control & resume</button
+              ><button id="abort" class="secondary">Abort run</button>
+            </div>
+          </section>
+          <section class="panel verification">
+            <div class="verification-title">
+              <h2>Business result checks</h2>
+              <span class="eyebrow">A SCREEN IS NOT A RESULT</span>
+            </div>
+            <div class="checks">
+              <div>
+                <span class="check-icon" id="screen-check">—</span>
+                <div>
+                  <strong>Expected screen</strong>
+                  <p id="screen-detail">Waiting for savings account</p>
+                </div>
+              </div>
+              <div>
+                <span class="check-icon" id="identity-check">—</span>
+                <div>
+                  <strong>Correct member</strong>
+                  <p id="identity-detail">Must match the requested input</p>
+                </div>
+              </div>
+            </div>
+            <div id="outcome" class="outcome" role="status" aria-live="polite">
+              Choose a condition and run the sample to inspect its outcome.
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="panel trace-panel">
+        <div class="trace-heading">
+          <div>
+            <span class="eyebrow">02 / INSPECT</span>
+            <h2>Execution trace</h2>
+          </div>
+          <button id="download" class="secondary" disabled>Download demo trace ↓</button>
+        </div>
+        <ol id="trace">
+          <li class="empty-trace">
+            Your sample run will appear here. Every event is labeled as simulated.
+          </li>
+        </ol>
+      </section>
+      <footer>
+        <span>Discover with AI. Execute with explicit checks. Keep humans in control.</span
+        ><a
+          href="https://github.com/Irenezhangtt/llm-automation-platform/blob/main/evidence/assurance/SUMMARY.md"
+          target="_blank"
+          rel="noopener"
+          >View real replay evidence ↗</a
+        >
+      </footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

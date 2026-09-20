@@ -18,7 +18,9 @@
     "demo:assurance": "node --env-file-if-exists=.env --import tsx scripts/assurance-lab.ts",
     "check:submission": "node --import tsx scripts/check-submission.ts",
     "test:python": "PYTHONPATH=python python3 -B -m unittest discover -s python/tests -v",
-    "demo:capture": "node --env-file-if-exists=.env --import tsx scripts/capture-demo.ts"
+    "demo:capture": "node --env-file-if-exists=.env --import tsx scripts/capture-demo.ts",
+    "demo:web": "node --import tsx scripts/preview-reviewer.ts",
+    "build:demo": "node scripts/build-reviewer.mjs"
   },
   "dependencies": {
     "playwright": "^1.63.0",
