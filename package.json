@@ -20,7 +20,8 @@
     "test:python": "PYTHONPATH=python python3 -B -m unittest discover -s python/tests -v",
     "demo:capture": "node --env-file-if-exists=.env --import tsx scripts/capture-demo.ts",
     "demo:web": "node --import tsx scripts/preview-reviewer.ts",
-    "build:demo": "node scripts/build-reviewer.mjs"
+    "build:demo": "node scripts/build-reviewer.mjs",
+    "demo:live": "node --env-file-if-exists=.env --import tsx scripts/live-validation.ts"
   },
   "dependencies": {
     "playwright": "^1.63.0",

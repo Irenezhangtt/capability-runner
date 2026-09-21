@@ -48,6 +48,17 @@ The assurance lab also starts its own sandbox. It tests normal results, rejected
 
 ## Real discovery and deterministic replay
 
+For a complete evidence run after configuring `.env`, use:
+
+```bash
+npm run demo:live
+npm run check:submission
+```
+
+This starts a temporary sandbox, performs genuine API-backed discovery, saves the capability, and replays that exact artifact through the 15-case fault corpus. The replay subprocess receives no model credentials. Evidence is saved under `evidence/live/`; the public interactive demo is unaffected. A failed discovery stops the command without substituting an authored fixture.
+
+For separate discovery and replay commands:
+
 Terminal 1:
 
 ```bash

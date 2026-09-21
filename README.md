@@ -58,7 +58,7 @@ Application policy restricts routes and actions. Bound inputs and sensitive outp
 
 | Evidence                                      | Result                                     | Scope                                                                                                            |
 | --------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| TypeScript/browser tests                      | 30 passed                                  | Contracts, replay, safety, tenant bindings, handoff, and Python process bridge                                   |
+| TypeScript/browser tests                      | 31 passed                                  | Contracts, replay, safety, tenant bindings, handoff, and Python process bridge                                   |
 | Python tests                                  | 10 passed                                  | Provider request formats, response handling, protocol validation, and safe errors; provider responses are mocked |
 | [Fault corpus](evidence/assurance/SUMMARY.md) | 15/15 expected outcomes                    | Two synthetic presentations; includes correct rejections and recovery behavior                                   |
 | [Browser captures](docs/DEMO.md)              | Four verified scenarios, eight screenshots | Successful lookup, tenant reuse, wrong-member rejection, and scripted operator restoration                       |
@@ -97,7 +97,11 @@ npm run demo:web
 # Real browser replay using an authored capability:
 npm run demo:assurance
 
-# Live discovery: configure the provider key and LLM_MODEL in .env.
+# Full live evidence run: configure the provider key and LLM_MODEL in .env.
+npm run demo:live
+npm run check:submission
+
+# Or run discovery and replay separately.
 # Start the sandbox in a separate terminal:
 npm run app
 npm run discover -- --inputs '{"memberId":"12345"}' --evidence evidence/live
