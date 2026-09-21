@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "86031cad-8ae5-47e1-83ef-62a47196ab66",
+  "code": "ENTITY_MISMATCH",
+  "step": "step5",
+  "expected": "Savings account details",
+  "observed": "Displayed entity does not match the requested input; extraction blocked; visible controls: balance, currency, displayedMember, complete, transfer",
+  "evidence": "evidence/live/replay-corpus/86031cad-8ae5-47e1-83ef-62a47196ab66/failure-dom.json"
+}

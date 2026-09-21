@@ -12,7 +12,7 @@ The reference task is a savings-account lookup: find a member, open the account,
 
 The central design decision is to separate workflow discovery from execution. An LLM can help identify the steps needed to complete a task. Once recorded, those steps become a versioned contract with defined inputs, permitted actions, outputs, and success conditions. Repeated runs follow that contract without further model calls. This makes execution easier to inspect and puts a limit on what the automation can do.
 
-**Delivery status:** the browser runtime, Python API connectors, exception handling, and local operator console are implemented. Replay is validated against synthetic applications. Live API-backed discovery evidence is still pending; this is not a production banking deployment.
+**Delivery status:** the browser runtime, Python API connectors, exception handling, and local operator console are implemented. Genuine Claude discovery and 15 replay scenarios are verified against synthetic applications; this is not a production banking deployment. See [the end-to-end evidence](evidence/live/README.md).
 
 ## Users and operating model
 
@@ -56,12 +56,13 @@ Application policy restricts routes and actions. Bound inputs and sensitive outp
 
 ## Validation and evidence
 
-| Evidence                                      | Result                                     | Scope                                                                                                            |
-| --------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| TypeScript/browser tests                      | 31 passed                                  | Contracts, replay, safety, tenant bindings, handoff, and Python process bridge                                   |
-| Python tests                                  | 10 passed                                  | Provider request formats, response handling, protocol validation, and safe errors; provider responses are mocked |
-| [Fault corpus](evidence/assurance/SUMMARY.md) | 15/15 expected outcomes                    | Two synthetic presentations; includes correct rejections and recovery behavior                                   |
-| [Browser captures](docs/DEMO.md)              | Four verified scenarios, eight screenshots | Successful lookup, tenant reuse, wrong-member rejection, and scripted operator restoration                       |
+| Evidence                                               | Result                                     | Scope                                                                                                            |
+| ------------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| TypeScript/browser tests                               | 31 passed                                  | Contracts, replay, safety, tenant bindings, handoff, and Python process bridge                                   |
+| Python tests                                           | 10 passed                                  | Provider request formats, response handling, protocol validation, and safe errors; provider responses are mocked |
+| [Genuine discovery](evidence/live/README.md)           | Successful Claude API run; 7 model calls   | Live UI observations and actions produced the saved capability                                                   |
+| [Fault corpus](evidence/live/replay-corpus/SUMMARY.md) | 15/15 expected outcomes                    | The discovered capability across two synthetic presentations; includes correct rejections and recovery behavior  |
+| [Browser captures](docs/DEMO.md)                       | Four verified scenarios, eight screenshots | Successful lookup, tenant reuse, wrong-member rejection, and scripted operator restoration                       |
 
 Both presentations reject the wrong-member counterexample before extraction. Recorded replay cases make zero model calls. These results establish behavior within the test corpus; they do not establish production reliability, time savings, or model-discovery accuracy.
 
@@ -75,7 +76,7 @@ The public website is an explicitly labeled browser-side simulation. Its downloa
 
 Before a production pilot, the next acceptance gates are:
 
-1. Record genuine API-backed discovery and successful replay of the resulting artifact with changed inputs.
+1. Measure discovery consistency across multiple goals and repeated model runs; the initial genuine discovery and changed-input replay are complete.
 2. Validate the adapter against an independently built application and conduct an operator-led recovery exercise.
 3. Add authentication, secret management, isolated tenant sessions, durable run storage, and workflow approval history.
 4. Measure task correctness, intervention rate, recovery success, latency, and model cost on representative workloads.

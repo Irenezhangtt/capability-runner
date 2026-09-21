@@ -1,0 +1,25 @@
+{"seq":1,"at":"2026-09-21T04:35:28.036Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","artifactHash":"da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a","sourceRunId":"b204f2c2-158d-4abd-b742-77c52f75549b","sourceKind":"llm_discovery","llmCalls":0}
+{"seq":2,"at":"2026-09-21T04:35:28.036Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-21T04:35:28.109Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":4,"at":"2026-09-21T04:35:28.109Z","type":"action_started","step":"step1","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":5,"at":"2026-09-21T04:35:28.122Z","type":"action_completed","step":"step1","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":6,"at":"2026-09-21T04:35:28.123Z","type":"action_started","step":"step2","action":{"type":"click","target":"search"}}
+{"seq":7,"at":"2026-09-21T04:35:28.279Z","type":"action_completed","step":"step2","checkpoint":{"target":"resultsReady","text":"Search results"}}
+{"seq":8,"at":"2026-09-21T04:35:28.279Z","type":"action_started","step":"step3","action":{"type":"click","target":"openMember"}}
+{"seq":9,"at":"2026-09-21T04:35:28.377Z","type":"action_completed","step":"step3","checkpoint":{"target":"memberReady","text":"Member overview"}}
+{"seq":10,"at":"2026-09-21T04:35:28.378Z","type":"action_started","step":"step4","action":{"type":"click","target":"savings"}}
+{"seq":11,"at":"2026-09-21T04:35:28.439Z","type":"condition_detected","step":"step4","code":"SESSION_EXPIRED","kind":"handoff"}
+{"seq":12,"at":"2026-09-21T04:35:28.468Z","type":"intervention_requested","capability":"lookupSavings","step":"step4","code":"SESSION_EXPIRED","expected":"Savings account details","evidence":"evidence/live/walkthrough/89d01576-2eb0-4415-987e-c7802a8b46ce/failure-dom.json"}
+{"seq":13,"at":"2026-09-21T04:35:28.768Z","type":"control_transferred","from":"paused","to":"human","step":"step4"}
+{"seq":14,"at":"2026-09-21T04:35:28.787Z","type":"human_action","event":"click","tag":"BUTTON","control":"Restore training session","values":"[not captured]"}
+{"seq":15,"at":"2026-09-21T04:35:28.868Z","type":"human_returned_control","step":"step4"}
+{"seq":16,"at":"2026-09-21T04:35:28.999Z","type":"control_transferred","from":"human","to":"automation","step":"step4"}
+{"seq":17,"at":"2026-09-21T04:35:29.000Z","type":"action_completed","step":"step4","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":18,"at":"2026-09-21T04:35:29.000Z","type":"action_started","step":"step5","action":{"type":"extract","target":"balance","output":"balance"}}
+{"seq":19,"at":"2026-09-21T04:35:29.008Z","type":"postcondition_checked","step":"step5","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":20,"at":"2026-09-21T04:35:29.018Z","type":"action_completed","step":"step5","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":21,"at":"2026-09-21T04:35:29.018Z","type":"action_started","step":"step6","action":{"type":"extract","target":"currency","output":"currency"}}
+{"seq":22,"at":"2026-09-21T04:35:29.022Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":23,"at":"2026-09-21T04:35:29.029Z","type":"action_completed","step":"step6","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":24,"at":"2026-09-21T04:35:29.034Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":25,"at":"2026-09-21T04:35:29.037Z","type":"run_completed","outputNames":["balance","currency"]}

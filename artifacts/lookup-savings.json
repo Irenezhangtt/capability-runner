@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "1.1",
+  "capabilityVersion": "1.0.0",
+  "name": "lookupSavings",
+  "description": "Look up a member and return their available savings balance and currency.",
+  "app": {
+    "product": "LedgerDesk",
+    "version": "1",
+    "profileDigest": "2f567c434d8b3a25cf4f780e1f1508ab5dd7986efee4dab8c6ba64f796446550"
+  },
+  "targets": {
+    "memberId": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Member ID"
+    },
+    "search": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "button",
+      "name": "Find member"
+    },
+    "openMember": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Open member"
+    },
+    "savings": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Savings account"
+    },
+    "balance": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Available balance"
+    },
+    "currency": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Currency"
+    },
+    "displayedMember": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "label",
+      "name": "Member reference"
+    },
+    "complete": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Savings account details"
+    },
+    "searchReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Member search"
+    },
+    "resultsReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Search results"
+    },
+    "memberReady": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "heading",
+      "name": "Member overview"
+    },
+    "notFound": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "No matching member"
+    },
+    "validation": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Enter a five-digit member ID"
+    },
+    "transient": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Service temporarily unavailable"
+    },
+    "retry": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "link",
+      "name": "Retry lookup"
+    },
+    "expired": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Session expired"
+    },
+    "denied": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "text",
+      "name": "Permission denied"
+    },
+    "transfer": {
+      "frame": "iframe[title=\"Account workspace\"]",
+      "by": "role",
+      "role": "button",
+      "name": "Transfer funds"
+    }
+  },
+  "inputs": {
+    "memberId": {
+      "type": "string",
+      "description": "Five-digit synthetic member identifier",
+      "sensitive": true
+    }
+  },
+  "outputs": {
+    "balance": {
+      "type": "number",
+      "description": "Available savings balance",
+      "sensitive": true
+    },
+    "currency": {
+      "type": "string",
+      "description": "ISO currency code",
+      "sensitive": false
+    }
+  },
+  "steps": [
+    {
+      "id": "entry",
+      "action": {
+        "type": "navigate",
+        "path": "/app"
+      },
+      "checkpoint": {
+        "target": "searchReady",
+        "text": "Member search"
+      }
+    },
+    {
+      "id": "step1",
+      "action": {
+        "type": "fill",
+        "target": "memberId",
+        "input": "memberId"
+      },
+      "checkpoint": {
+        "target": "searchReady",
+        "text": "Member search"
+      }
+    },
+    {
+      "id": "step2",
+      "action": {
+        "type": "click",
+        "target": "search"
+      },
+      "checkpoint": {
+        "target": "resultsReady",
+        "text": "Search results"
+      }
+    },
+    {
+      "id": "step3",
+      "action": {
+        "type": "click",
+        "target": "openMember"
+      },
+      "checkpoint": {
+        "target": "memberReady",
+        "text": "Member overview"
+      }
+    },
+    {
+      "id": "step4",
+      "action": {
+        "type": "click",
+        "target": "savings"
+      },
+      "checkpoint": {
+        "target": "complete",
+        "text": "Savings account details"
+      }
+    },
+    {
+      "id": "step5",
+      "action": {
+        "type": "extract",
+        "target": "balance",
+        "output": "balance"
+      },
+      "checkpoint": {
+        "target": "complete",
+        "text": "Savings account details"
+      }
+    },
+    {
+      "id": "step6",
+      "action": {
+        "type": "extract",
+        "target": "currency",
+        "output": "currency"
+      },
+      "checkpoint": {
+        "target": "complete",
+        "text": "Savings account details"
+      }
+    }
+  ],
+  "success": {
+    "target": "complete",
+    "text": "Savings account details"
+  },
+  "postconditions": [
+    {
+      "target": "displayedMember",
+      "equalsInput": "memberId"
+    }
+  ],
+  "provenance": {
+    "kind": "llm_discovery",
+    "runId": "b204f2c2-158d-4abd-b742-77c52f75549b",
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "createdAt": "2026-09-21T04:34:17.619Z"
+  }
+}

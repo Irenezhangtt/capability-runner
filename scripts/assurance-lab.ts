@@ -227,7 +227,9 @@ try {
     },
     limitations: [
       'Synthetic deterministic scenarios, not a statistical estimate of production reliability.',
-      'Authored fixture runs do not satisfy the genuine LLM discovery requirement.',
+      artifact.provenance.kind === 'llm_discovery'
+        ? 'One genuine discovery run does not establish model reliability across other goals or applications.'
+        : 'Authored fixture runs do not satisfy the genuine LLM discovery requirement.',
       'Tenant labels still require semantic review; a constrained overlay does not prove a label identifies a safe business action.',
     ],
     rows,

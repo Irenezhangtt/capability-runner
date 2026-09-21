@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "b0246806-3568-4ba8-abb4-df04197c37ca",
+  "code": "APP_VERSION_MISMATCH",
+  "step": "entry",
+  "expected": "Member search",
+  "observed": "Expected app fingerprint is absent; visible controls: unavailable",
+  "evidence": "evidence/live/replay-corpus/b0246806-3568-4ba8-abb4-df04197c37ca/failure-dom.json"
+}

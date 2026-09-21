@@ -30,7 +30,7 @@ OPENAI_API_KEY=YOUR_LOCAL_KEY
 BROWSER_CHANNEL=chrome
 ```
 
-Supported adapters: `openai` (Responses API), `anthropic` (Messages API; use `ANTHROPIC_API_KEY`), and `compatible` (Chat Completions; set `LLM_BASE_URL` and `OPENAI_API_KEY`). Select a model supporting JSON decisions. Provider adapters remain unverified against a live account until real evidence is generated. Never put keys in commands, the repository, goals, or screenshots.
+Supported adapters: `openai` (Responses API), `anthropic` (Messages API; use `ANTHROPIC_API_KEY`), and `compatible` (Chat Completions; set `LLM_BASE_URL` and `OPENAI_API_KEY`). Select a model supporting JSON decisions. The Anthropic adapter has completed a real discovery run; OpenAI and compatible adapters have mocked-test coverage only. Never put keys in commands, the repository, goals, or screenshots.
 
 ## Run without live services
 

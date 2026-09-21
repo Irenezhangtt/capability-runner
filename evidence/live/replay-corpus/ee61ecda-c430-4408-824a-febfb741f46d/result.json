@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "ee61ecda-c430-4408-824a-febfb741f46d",
+  "code": "OUTPUT_PARSE_FAILED",
+  "step": "step5",
+  "expected": "Savings account details",
+  "observed": "Output does not match its declared type; visible controls: balance, currency, displayedMember, complete, transfer",
+  "evidence": "evidence/live/replay-corpus/ee61ecda-c430-4408-824a-febfb741f46d/failure-dom.json"
+}

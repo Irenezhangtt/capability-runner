@@ -1,0 +1,20 @@
+{"seq":1,"at":"2026-09-21T04:35:27.068Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","artifactHash":"da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a","sourceRunId":"b204f2c2-158d-4abd-b742-77c52f75549b","sourceKind":"llm_discovery","llmCalls":0}
+{"seq":2,"at":"2026-09-21T04:35:27.070Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-21T04:35:27.071Z","type":"tenant_binding","tenant":"harbor","overlayHash":"715d3cb0162364eb90b37455a3a1fcc96c7191fa44b4b7d2c7daf513035a9193","baseProfileDigest":"2f567c434d8b3a25cf4f780e1f1508ab5dd7986efee4dab8c6ba64f796446550","effectiveProfileDigest":"eea845872a9f134669bd091814d39fcf0a1229abd64209e3393b4f82954afd80","changes":[{"target":"memberId","from":"Member ID","to":"Client number"},{"target":"search","from":"Find member","to":"Find client"},{"target":"openMember","from":"Open member","to":"View client"},{"target":"savings","from":"Savings account","to":"Deposit account"},{"target":"balance","from":"Available balance","to":"Available funds"},{"target":"currency","from":"Currency","to":"Account currency"},{"target":"displayedMember","from":"Member reference","to":"Client reference"},{"target":"complete","from":"Savings account details","to":"Savings summary"},{"target":"searchReady","from":"Member search","to":"Client directory"},{"target":"resultsReady","from":"Search results","to":"Matching clients"},{"target":"memberReady","from":"Member overview","to":"Client overview"},{"target":"notFound","from":"No matching member","to":"No matching client"}]}
+{"seq":4,"at":"2026-09-21T04:35:27.141Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":5,"at":"2026-09-21T04:35:27.141Z","type":"action_started","step":"step1","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":6,"at":"2026-09-21T04:35:27.154Z","type":"action_completed","step":"step1","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":7,"at":"2026-09-21T04:35:27.154Z","type":"action_started","step":"step2","action":{"type":"click","target":"search"}}
+{"seq":8,"at":"2026-09-21T04:35:27.211Z","type":"action_completed","step":"step2","checkpoint":{"target":"resultsReady","text":"Search results"}}
+{"seq":9,"at":"2026-09-21T04:35:27.211Z","type":"action_started","step":"step3","action":{"type":"click","target":"openMember"}}
+{"seq":10,"at":"2026-09-21T04:35:27.342Z","type":"action_completed","step":"step3","checkpoint":{"target":"memberReady","text":"Member overview"}}
+{"seq":11,"at":"2026-09-21T04:35:27.343Z","type":"action_started","step":"step4","action":{"type":"click","target":"savings"}}
+{"seq":12,"at":"2026-09-21T04:35:27.403Z","type":"action_completed","step":"step4","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":13,"at":"2026-09-21T04:35:27.403Z","type":"action_started","step":"step5","action":{"type":"extract","target":"balance","output":"balance"}}
+{"seq":14,"at":"2026-09-21T04:35:27.408Z","type":"postcondition_checked","step":"step5","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":15,"at":"2026-09-21T04:35:27.416Z","type":"action_completed","step":"step5","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":16,"at":"2026-09-21T04:35:27.416Z","type":"action_started","step":"step6","action":{"type":"extract","target":"currency","output":"currency"}}
+{"seq":17,"at":"2026-09-21T04:35:27.420Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":18,"at":"2026-09-21T04:35:27.427Z","type":"action_completed","step":"step6","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":19,"at":"2026-09-21T04:35:27.431Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":20,"at":"2026-09-21T04:35:27.433Z","type":"run_completed","outputNames":["balance","currency"]}

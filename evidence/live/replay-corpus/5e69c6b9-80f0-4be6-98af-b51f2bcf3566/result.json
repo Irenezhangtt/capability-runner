@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "5e69c6b9-80f0-4be6-98af-b51f2bcf3566",
+  "code": "AMBIGUOUS_TARGET",
+  "step": "step4",
+  "expected": "Savings account details",
+  "observed": "Multiple controls match the reviewed target; visible controls: unavailable",
+  "evidence": "evidence/live/replay-corpus/5e69c6b9-80f0-4be6-98af-b51f2bcf3566/failure-dom.json"
+}

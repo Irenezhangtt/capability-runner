@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "a991e53d-0176-4ea1-af7e-50e1be1b4053",
+  "code": "INTERVENTION_REQUIRED",
+  "step": "step4",
+  "expected": "Savings account details",
+  "observed": "Rerun headed with --human for live session handoff; visible controls: expired",
+  "evidence": "evidence/live/replay-corpus/a991e53d-0176-4ea1-af7e-50e1be1b4053/failure-dom.json"
+}

@@ -1,0 +1,19 @@
+{"seq":1,"at":"2026-09-21T04:34:19.635Z","type":"run_started","mode":"deterministic_replay","capability":"lookupSavings","artifactHash":"da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a","sourceRunId":"b204f2c2-158d-4abd-b742-77c52f75549b","sourceKind":"llm_discovery","llmCalls":0}
+{"seq":2,"at":"2026-09-21T04:34:19.635Z","type":"action_started","step":"entry","action":{"type":"navigate","path":"/app"}}
+{"seq":3,"at":"2026-09-21T04:34:19.705Z","type":"action_completed","step":"entry","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":4,"at":"2026-09-21T04:34:19.706Z","type":"action_started","step":"step1","action":{"type":"fill","target":"memberId","input":"memberId"}}
+{"seq":5,"at":"2026-09-21T04:34:19.720Z","type":"action_completed","step":"step1","checkpoint":{"target":"searchReady","text":"Member search"}}
+{"seq":6,"at":"2026-09-21T04:34:19.721Z","type":"action_started","step":"step2","action":{"type":"click","target":"search"}}
+{"seq":7,"at":"2026-09-21T04:34:19.880Z","type":"action_completed","step":"step2","checkpoint":{"target":"resultsReady","text":"Search results"}}
+{"seq":8,"at":"2026-09-21T04:34:19.880Z","type":"action_started","step":"step3","action":{"type":"click","target":"openMember"}}
+{"seq":9,"at":"2026-09-21T04:34:19.945Z","type":"action_completed","step":"step3","checkpoint":{"target":"memberReady","text":"Member overview"}}
+{"seq":10,"at":"2026-09-21T04:34:19.945Z","type":"action_started","step":"step4","action":{"type":"click","target":"savings"}}
+{"seq":11,"at":"2026-09-21T04:34:20.002Z","type":"action_completed","step":"step4","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":12,"at":"2026-09-21T04:34:20.002Z","type":"action_started","step":"step5","action":{"type":"extract","target":"balance","output":"balance"}}
+{"seq":13,"at":"2026-09-21T04:34:20.008Z","type":"postcondition_checked","step":"step5","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":14,"at":"2026-09-21T04:34:20.020Z","type":"action_completed","step":"step5","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":15,"at":"2026-09-21T04:34:20.020Z","type":"action_started","step":"step6","action":{"type":"extract","target":"currency","output":"currency"}}
+{"seq":16,"at":"2026-09-21T04:34:20.026Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":17,"at":"2026-09-21T04:34:20.036Z","type":"action_completed","step":"step6","checkpoint":{"target":"complete","text":"Savings account details"}}
+{"seq":18,"at":"2026-09-21T04:34:20.042Z","type":"postcondition_checked","step":"step6","target":"displayedMember","equalsInput":"memberId","passed":true}
+{"seq":19,"at":"2026-09-21T04:34:20.045Z","type":"run_completed","outputNames":["balance","currency"]}

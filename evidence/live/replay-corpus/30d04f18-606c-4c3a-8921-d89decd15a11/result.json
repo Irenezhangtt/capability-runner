@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "30d04f18-606c-4c3a-8921-d89decd15a11",
+  "code": "RECOVERY_EXHAUSTED",
+  "step": "step2",
+  "expected": "Search results",
+  "observed": "Bounded recovery budget exhausted; visible controls: memberId, search, searchReady, transient, retry",
+  "evidence": "evidence/live/replay-corpus/30d04f18-606c-4c3a-8921-d89decd15a11/failure-dom.json"
+}

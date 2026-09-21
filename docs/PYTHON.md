@@ -56,6 +56,6 @@ npm run test:python
 node --import tsx --test tests/planner.test.ts
 ```
 
-Tests cover the three request formats, normalization, unsafe URLs, redirects, HTTP failures, timeouts, malformed and incomplete responses, size limits, protocol errors, and secret-safe failure handling. These tests do not establish live provider compatibility. Genuine API-backed discovery and linked replay evidence remain pending credentials.
+Tests cover the three request formats, normalization, unsafe URLs, redirects, HTTP failures, timeouts, malformed and incomplete responses, size limits, protocol errors, and secret-safe failure handling. These tests do not establish live provider compatibility. The Anthropic connector has additionally completed [genuine API-backed discovery and linked replay](../evidence/live/README.md). OpenAI and compatible connectors remain verified through mocked tests only.
 
 API references: [OpenAI Responses](https://developers.openai.com/api/reference/resources/responses/methods/create), [Anthropic Messages](https://platform.claude.com/docs/en/api/messages/create).

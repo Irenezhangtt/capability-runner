@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "runId": "2c9d43f1-2b94-4944-b2ab-ba5f4f619a66",
+  "code": "PERMISSION_DENIED",
+  "step": "step4",
+  "expected": "Savings account details",
+  "observed": "Application explicitly denied the operation; visible controls: denied",
+  "evidence": "evidence/live/replay-corpus/2c9d43f1-2b94-4944-b2ab-ba5f4f619a66/failure-dom.json"
+}

@@ -1,36 +1,37 @@
 {
-  "capturedAt": "2026-09-20T08:20:13.915Z",
+  "capturedAt": "2026-09-21T04:35:29.228Z",
   "source": "actual Playwright browser screenshots",
   "data": "synthetic training records only",
-  "capability": "authored_fixture; not live LLM discovery",
+  "capability": "llm_discovery",
+  "sourceRunId": "b204f2c2-158d-4abd-b742-77c52f75549b",
   "captures": [
     {
       "scenario": "normal",
       "result": "success",
-      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "artifactHash": "da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a",
       "modelCalls": 0,
-      "runId": "1c19ae18-6d3f-4f64-bf16-fa4c03b60398"
+      "runId": "6681b4df-9d13-478c-8e45-3ba9fc1b5563"
     },
     {
       "scenario": "wrong-member",
       "result": "ENTITY_MISMATCH",
-      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "artifactHash": "da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a",
       "modelCalls": 0,
-      "runId": "c1d3d8a9-2a34-483e-ba40-8915a97ac844"
+      "runId": "89e611ef-4894-4812-81bf-74e0f6b91bde"
     },
     {
       "scenario": "harbor",
       "result": "success",
-      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "artifactHash": "da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a",
       "modelCalls": 0,
-      "runId": "115a77ab-73af-4562-b3b3-f76c49fa6745"
+      "runId": "39d75a11-f22a-4068-a243-d0296cea0109"
     },
     {
       "scenario": "expired",
       "result": "success",
-      "artifactHash": "84b9e07f2928a4dd5b082146adbc0d6ce3fff41044ef51879a66c8a334472d9f",
+      "artifactHash": "da794485c46ceeb37157e4b48eb1d3ea6c6a436edfcad00764a233dfecd2110a",
       "modelCalls": 0,
-      "runId": "b10bb691-77a1-4a4b-94ac-78df2c36c77f",
+      "runId": "89d01576-2eb0-4415-987e-c7802a8b46ce",
       "operator": "scripted operator simulation on the same live page"
     }
   ]

@@ -1,5 +1,7 @@
 // Real browser captures of the synthetic sandbox. Never use with customer data.
 import assert from 'node:assert/strict';
+import { parseArgs } from 'node:util';
+import { Artifact } from '../src/schema.js';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { AddressInfo } from 'node:net';
@@ -11,11 +13,19 @@ import { compileTenant, TenantSurface } from '../src/tenant.js';
 import { contentHash } from '../src/profile.js';
 import { fixture, loadProfile } from './fixtures.js';
 
+const { values } = parseArgs({
+  options: {
+    artifact: { type: 'string' },
+    evidence: { type: 'string', default: 'runs/presentation' },
+  },
+});
 const destination = 'docs/assets/demo';
 await mkdir(destination, { recursive: true });
 const server = await startDemo(0);
 const profile = await loadProfile(`http://127.0.0.1:${(server.address() as AddressInfo).port}`);
-const artifact = await fixture(profile);
+const artifact = values.artifact
+  ? Artifact.parse(JSON.parse(await readFile(values.artifact, 'utf8')))
+  : await fixture(profile);
 const binding = compileTenant(
   profile,
   JSON.parse(await readFile('config/tenants/harbor.json', 'utf8')),
@@ -23,7 +33,7 @@ const binding = compileTenant(
 const captures: Record<string, unknown>[] = [];
 try {
   for (const scenario of ['normal', 'wrong-member', 'harbor', 'expired']) {
-    const evidence = new Evidence('runs/presentation');
+    const evidence = new Evidence(values.evidence);
     const browser = new BrowserSurface(
       scenario === 'harbor' ? binding.effective : profile,
       evidence,
@@ -50,6 +60,7 @@ try {
         };
       }
       await runner.handoff.start();
+      const originalPage = browser.page;
       const pending = runner.replay(artifact, {
         memberId: scenario === 'harbor' ? '67890' : '12345',
       });
@@ -72,6 +83,7 @@ try {
         await operator.close();
       }
       const result = await pending;
+      assert.equal(browser.page, originalPage);
       if (scenario === 'wrong-member') {
         assert.equal(result.status, 'failure');
         assert.ok(result.status === 'failure' && result.code === 'ENTITY_MISMATCH');
@@ -112,7 +124,8 @@ try {
         capturedAt: new Date().toISOString(),
         source: 'actual Playwright browser screenshots',
         data: 'synthetic training records only',
-        capability: 'authored_fixture; not live LLM discovery',
+        capability: artifact.provenance.kind,
+        sourceRunId: artifact.provenance.runId,
         captures,
       },
       null,
