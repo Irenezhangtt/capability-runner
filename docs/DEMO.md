@@ -1,6 +1,6 @@
 # See the platform in action
 
-**[Try the interactive demo](https://llm-automation-operations-demo.tina219127.chatgpt.site)** · No API key needed
+**[Try the interactive demo](https://irenezhangtt.github.io/llm-automation-platform/)** · No API key needed
 
 The public workflow studio is a browser-side simulation. The screenshots below separately document execution of the real Playwright runtime.
 
