@@ -1,85 +1,111 @@
 # LLM Automation Platform for Operations Teams
 
-**Turn repetitive work in legacy software into reusable, verifiable automation.**
+**Product & Engineering Report · Irene Zhang**
 
-**[Try the interactive demo](https://irenezhangtt.github.io/llm-automation-platform/)** · [Real browser screenshots](docs/DEMO.md) · [Architecture](REPORT.md) · [Run the demo](docs/RUNNING.md) · [Design decisions](docs/DECISIONS.md) · [Evidence](evidence/assurance/SUMMARY.md)
-
-![Platform overview: an LLM discovers a workflow, a versioned capability captures it, and a deterministic runtime executes it with verification and human handoff.](docs/assets/platform-overview.svg)
-
-## See it working
-
-**[Launch the interactive workflow studio →](https://irenezhangtt.github.io/llm-automation-platform/)** Try sample runs, failure conditions, and human handoff without an API key. The public app is an explicitly labeled simulation; live AI discovery shows “API token unavailable.”
-
-[![Actual operator console: automation pauses when a session expires and offers human takeover](docs/assets/demo/07-operator-handoff.png)](docs/DEMO.md)
-
-**[Open the two-minute walkthrough →](docs/DEMO.md)** Real browser captures show lookup, tenant reuse, wrong-member rejection, and same-session handoff. No installation needed. Synthetic data and an authored replay capability; live LLM discovery evidence remains pending.
+[Interactive demo](https://irenezhangtt.github.io/llm-automation-platform/) · [Browser walkthrough](docs/DEMO.md) · [Technical design](REPORT.md) · [Run locally](docs/RUNNING.md)
 
 ## About
 
-Operations teams spend time repeating tasks across legacy applications that lack usable APIs. They need automation whose results they can verify and whose exceptions they can resolve. This platform is designed for those teams, with automation engineers configuring workflows and operators handling exceptions.
+LLM Automation Platform is a prototype for automating repeatable tasks in business applications without usable APIs. It is designed for operations teams, with automation engineers configuring workflows and operators resolving exceptions.
 
-**Product insight:** discovering a workflow and executing it repeatedly are different jobs. Use an LLM to discover the steps, capture a reviewable capability, then replay it with explicit identity and result checks. When execution cannot proceed safely, a person takes over the same live session.
+The reference task is a savings-account lookup: find a member, open the account, verify the member's identity, and return the balance and currency. It runs against a synthetic banking application with server-rendered pages, tables, and an iframe.
 
-The current prototype provides developer tools and an operator handoff console, demonstrated through a synthetic banking workflow.
+The central design decision is to separate workflow discovery from execution. An LLM can help identify the steps needed to complete a task. Once recorded, those steps become a versioned contract with defined inputs, permitted actions, outputs, and success conditions. Repeated runs follow that contract without further model calls. This makes execution easier to inspect and puts a limit on what the automation can do.
 
-## How it works
+**Delivery status:** the browser runtime, Python API connectors, exception handling, and local operator console are implemented. Replay is validated against synthetic applications. Live API-backed discovery evidence is still pending; this is not a production banking deployment.
 
-| Discover                                                                    | Capture                                                                                    | Execute                                                                                            |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| An LLM observes a live interface and chooses bounded actions toward a goal. | The successful flow becomes a versioned, parameterized capability that people can inspect. | A deterministic runtime applies new inputs, verifies the result, and returns a structured outcome. |
+## Users and operating model
 
-Safety policy surrounds both discovery and execution. When automation cannot proceed safely, it pauses and gives a person control of **the same live session**, then checks the state before continuing.
+| User                        | Responsibility                                        | Product support                                                                            |
+| --------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Operations specialist       | Complete a lookup and resolve interrupted work        | Structured outcomes; takeover of the existing browser session                              |
+| Automation engineer         | Configure application controls and maintain workflows | Typed capabilities, application policies, version checks, and tenant presentation adapters |
+| Operations lead or reviewer | Understand why a run succeeded or stopped             | Redacted event logs, identity-check results, and failure diagnostics                       |
 
-## Three questions shape the design
+The intended use case is a stable, repetitive workflow whose result can be checked explicitly. New applications still require an engineer to define and review their controls. Arbitrary websites, desktop applications, and financial write transactions are outside the current scope.
 
-### Is it the right result—or just the right screen?
+## Product design
 
-A valid savings page can still belong to the wrong member. Before reading a balance, the platform checks that the displayed identity matches the requested one. A successful click is only part of the evidence.
+![Architecture: model-led discovery produces a versioned capability, which a deterministic runtime executes within safety policy and human oversight.](docs/assets/platform-overview.svg)
 
-### Can one workflow serve more than one institution?
+| Stage     | Implementation                                                                                                                    | Design consequence                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Discover  | Python connects to OpenAI, Anthropic, or compatible model APIs. The model selects bounded actions from reviewed visible controls. | Provider integration stays separate from browser execution. Model decisions remain subject to runtime validation. |
+| Record    | A successful discovery produces a typed, versioned capability with parameters, checkpoints, and identity conditions.              | The workflow is inspectable and reusable with new inputs.                                                         |
+| Execute   | TypeScript and Playwright interpret the capability, check the application state, and extract validated outputs.                   | Replay requires no model calls. Unknown or ambiguous states stop execution.                                       |
+| Intervene | A local console transfers control to an operator, then verifies the restored state before resuming.                               | The browser page, cookies, and session survive the interruption.                                                  |
 
-The same capability runs across two tenant presentations. A constrained adapter handles different labels and frames while preserving permissions, output definitions, and identity checks. Unrecognized differences stop execution for review.
+Two choices are particularly important:
 
-### What happens when the happy path ends?
+- **Verify the business entity.** A correct-looking account page can belong to the wrong member. The runtime compares the displayed identifier with the requested input before extracting a balance.
+- **Constrain reuse across institutions.** A presentation adapter handles differences in labels and frames. It cannot expand permissions, change output definitions, or remove identity checks. The same capability runs against LedgerDesk and Harbor CU.
 
-“Member not found,” a temporary service error, and a session expiry need different responses. The runtime distinguishes business outcomes, bounded recovery, and human intervention—and records enough redacted evidence to explain its decision.
+These choices require more configuration than unrestricted browser exploration. The tradeoff is a smaller execution surface and explicit conditions under which a run must stop. See [design decisions](docs/DECISIONS.md) for the alternatives and remaining limitations.
 
-## The platform in miniature
+## Exceptions and controls
 
-The working example searches a synthetic banking system, opens a member's savings account, and returns the balance and currency. A second presentation, Harbor CU, exercises reuse across institutions.
+| Condition                                            | Runtime response                                                  |
+| ---------------------------------------------------- | ----------------------------------------------------------------- |
+| Member absent or identifier invalid                  | Return a defined business outcome                                 |
+| Recognized temporary service error                   | Apply the reviewed recovery action, with a maximum of two retries |
+| Wrong member, ambiguous control, or malformed output | Stop with a specific failure code                                 |
+| Permission denied                                    | Stop without attempting a bypass                                  |
+| Expired session or unexpected checkpoint             | Request operator intervention; verify state before resuming       |
 
-**TypeScript runtime + Python API connectors · 15 fault-corpus cases · 2 tenant presentations · 0 model calls during replay**
+Application policy restricts routes and actions. Bound inputs and sensitive outputs are redacted before evidence is written. Provider errors are not copied into logs. These controls are implemented for the local prototype; remote operation would require authenticated operators, durable session ownership, and tenant isolation.
 
-The [assurance lab](evidence/assurance/SUMMARY.md) includes a revealing counterexample: the expected page is visible, but the member is wrong. Both presentations reject it before extraction. These are reproducible synthetic experiments, not a production reliability claim.
+## Validation and evidence
 
-> **Current stage:** The runtime, tenant reuse, and handoff mechanism are implemented and tested. Genuine API-backed discovery evidence is still pending; published offline runs use an explicitly authored capability.
+| Evidence                                      | Result                                     | Scope                                                                                                            |
+| --------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| TypeScript/browser tests                      | 30 passed                                  | Contracts, replay, safety, tenant bindings, handoff, and Python process bridge                                   |
+| Python tests                                  | 10 passed                                  | Provider request formats, response handling, protocol validation, and safe errors; provider responses are mocked |
+| [Fault corpus](evidence/assurance/SUMMARY.md) | 15/15 expected outcomes                    | Two synthetic presentations; includes correct rejections and recovery behavior                                   |
+| [Browser captures](docs/DEMO.md)              | Four verified scenarios, eight screenshots | Successful lookup, tenant reuse, wrong-member rejection, and scripted operator restoration                       |
 
-## Explore further
+Both presentations reject the wrong-member counterexample before extraction. Recorded replay cases make zero model calls. These results establish behavior within the test corpus; they do not establish production reliability, time savings, or model-discovery accuracy.
 
-- **[Design report](REPORT.md)** — architecture, contracts, safety, and deliberate scope.
-- **[Decision notes](docs/DECISIONS.md)** — alternatives considered and where the guarantees end.
-- **[Python integration](docs/PYTHON.md)** — model API connectors and the runtime boundary.
-- **[Running guide](docs/RUNNING.md)** — setup, live discovery, replay, and human handoff.
-- **[Reviewer guide](docs/REVIEW.md)** — assignment coverage and implementation map.
+## Review the product
+
+**[Open the interactive workflow studio](https://irenezhangtt.github.io/llm-automation-platform/)** to try sample inputs, failure conditions, human takeover, and trace download. No account or API key is required. Live AI discovery displays **“API token unavailable.”**
+
+The public website is an explicitly labeled browser-side simulation. Its downloaded traces are not execution evidence. The [separate browser walkthrough](docs/DEMO.md) shows the actual Playwright runtime and operator console. Source for both experiences is included in this repository.
+
+## Production readiness
+
+Before a production pilot, the next acceptance gates are:
+
+1. Record genuine API-backed discovery and successful replay of the resulting artifact with changed inputs.
+2. Validate the adapter against an independently built application and conduct an operator-led recovery exercise.
+3. Add authentication, secret management, isolated tenant sessions, durable run storage, and workflow approval history.
+4. Measure task correctness, intervention rate, recovery success, latency, and model cost on representative workloads.
+
+No production SLA or measured business-efficiency claim is made. Financial writes would additionally require application-level idempotency and reconciliation.
 
 <details>
-<summary><strong>Quick start — setup, discover, replay</strong></summary>
+<summary><strong>Developer quick start</strong></summary>
 
-Requires Node.js 22.9+, Google Chrome, and Python 3.10+ for live discovery. Copy `.env.example` to `.env` and configure the provider's API key and `LLM_MODEL` for live discovery. See the [running guide](docs/RUNNING.md) for Chromium and provider alternatives.
+Requires Node.js 22.9+ and Google Chrome or Playwright Chromium. Live discovery also requires Python 3.10+ and a configured model provider.
 
 ```bash
 npm ci
 cp .env.example .env
-npm run demo:assurance # No API key needed; uses an authored fixture.
 
-# For live discovery, start the sandbox in another terminal:
+# Interactive simulation, without a model key:
+npm run demo:web
+
+# Real browser replay using an authored capability:
+npm run demo:assurance
+
+# Live discovery: configure the provider key and LLM_MODEL in .env.
+# Start the sandbox in a separate terminal:
 npm run app
-
-# Then discover a capability and replay it with a different input:
 npm run discover -- --inputs '{"memberId":"12345"}' --evidence evidence/live
 npm run replay -- --inputs '{"memberId":"67890"}' --evidence evidence/live
 ```
 
-The default goal reads the supplied member's savings balance and currency. Discovery saves `artifacts/lookup-savings.json`; replay loads that same artifact. Keep keys in your local `.env`.
+Discovery writes `artifacts/lookup-savings.json`; replay loads that artifact. Keep credentials in the ignored local `.env` file.
+
+[Setup and commands](docs/RUNNING.md) · [Python integration](docs/PYTHON.md) · [Assignment coverage](docs/REVIEW.md)
 
 </details>
